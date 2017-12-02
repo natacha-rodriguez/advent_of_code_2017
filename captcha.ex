@@ -8,19 +8,15 @@ defmodule Captcha do
     end
     
     def get_sum([h|[n|t]], acc)  when h == n do   
-        IO.puts "found a match" 
         get_sum([n|t], (acc + h))
     end
     def get_sum([h|[n|t]], acc) when h != n  do
-        IO.puts "no match found"
         get_sum([n|t], acc )
     end
     def get_sum([h|n], acc) when h == n  do
-        IO.puts "got to the base case with match"
         acc + h
     end
     def get_sum([h|_], acc) do
-        IO.puts "got to the base case"
         acc
     end
     
