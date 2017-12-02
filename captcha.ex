@@ -21,15 +21,16 @@ defmodule Captcha do
     end
     
     def get_list_part_1() do
-        c_input = File.read! "day1_input.txt"
-
-            digits = c_input 
-            |> String.trim
-            |> String.split("", trim: true) 
-            |> Enum.take_while(fn(x) -> String.printable?(x) end) 
-            |> Enum.map(fn(x) ->String.to_integer(x) end)
-            
+            digits = get_digits()            
             [List.last(digits) | digits]
+    end
+    
+    def get_digits() do
+        digits = File.read! "day1_input.txt"
+        |> String.trim
+        |> String.split("", trim: true) 
+        |> Enum.take_while(fn(x) -> String.printable?(x) end) 
+        |> Enum.map(fn(x) ->String.to_integer(x) end)
     end
 end
 
