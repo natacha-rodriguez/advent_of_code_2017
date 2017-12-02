@@ -1,8 +1,8 @@
 
 defmodule Captcha do
-    def get_result() do
+    def get_result_part_1() do
         
-        digits = get_list()
+        digits = get_list_part_1()
         get_sum(digits, 0)
         
     end
@@ -20,7 +20,7 @@ defmodule Captcha do
         acc
     end
     
-    def get_list() do
+    def get_list_part_1() do
         c_input = File.read! "day1_input.txt"
 
             digits = c_input 
